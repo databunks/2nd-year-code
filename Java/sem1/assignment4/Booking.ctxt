@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Booking
+comment1.params=tripId\ startLocation\ endDesination\ fare\ passengers
+comment1.target=Booking(long,\ java.lang.String,\ java.lang.String,\ double,\ int)
+comment2.params=
+comment2.target=long\ getTripId()
+comment3.params=
+comment3.target=java.lang.String\ getStartLocation()
+comment4.params=
+comment4.target=java.lang.String\ getEndDestination()
+comment5.params=
+comment5.target=double\ getFare()
+comment6.params=
+comment6.target=int\ getPassengers()
+numComments=7

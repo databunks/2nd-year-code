@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "assignment 2",
+    "site": "defcon1337comment",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+<html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel = "stylesheet" href = "CSS_2.css">
+
+<head>
+<h1 align = "center" class = "bg-dark text-success">1337 DEFCON</h1> 
+
+<div id = "userFeedback" class = "container mx-auto bg-secondary rounded w-75 p-4 comment-section">
+<h2 align = "center" class = "font-weight-bolder">User Feedback</h2>
+
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text bg-success" id="basic-addon1">@</span>
+    </div>
+    <input id  = "handler" type="text" class="form-control" placeholder="User" aria-label="User" aria-describedby="basic-addon1">
+  </div>
+
+<div class="input-group input-group-sm mb-4">
+    <div class="input-group-prepend">
+      <span class="input-group-text bg-success p-3 mb-2">Leave a comment</span>  
+      <button onclick="submit()" class="btn btn-outline-danger" type="button" id="submitButton">Submit</button>
+    </div>
+    <textarea id = "submit" class="form-control aria-label="Leave a comment" placeholder="Type something here"></textarea>
+  </div>
+
+  <div id = "UserComments">
+  </div>
+  
+
+</div>  
+
+</head>
+<body>
+<script>
+    var handler, commentContent,date, commentObj,commentNo,i, containerID, timeSincePost,likey,notLikey;
+    var commentList = [];
+    commentNo = 0;
+    likey = 0;
+    notLikey = 0;
+    containerID = document.getElementById("UserComments");
+
+    function submit()
+    {
+        containerID.innerHTML = "";
+        handler = document.getElementById("handler").value;
+        commentContent = document.getElementById("submit").value;
+        document.getElementById('handler').value = "";
+        document.getElementById('submit').value = "";
+        date = Date.now();
+        commentObj = {handle: handler, comment: commentContent, time: date};
+        commentList.push(commentObj);
+        commentNo++;
+
+        for (i = 0; i < commentNo; i++)
+        {
+            
+            containerID.innerHTML += "<p>";
+            containerID.innerHTML += "Username : " + commentList[i].handle;
+            containerID.innerHTML += "</p>";
+
+            containerID.innerHTML += "<p>";
+            containerID.innerHTML += "Comment : " + commentList[i].comment;
+            containerID.innerHTML += "</p>"; 
+
+            timeSincePost = Date.now() - commentList[i].time;
+            timeSincePost /= 1000;
+
+            if (timeSincePost < 60)
+            {
+              containerID.innerHTML += "<p>";
+              containerID.innerHTML += "Time since post : " + Math.round(timeSincePost) +"s";
+              containerID.innerHTML += "</p>"; 
+              
+            }
+            else if (timeSincePost > 60 && timeSincePost < 3600)
+            {
+              timeSincePost /= 60;
+              containerID.innerHTML += "<p>";
+              containerID.innerHTML += "Time since post : " + Math.round(timeSincePost) + "m";
+              containerID.innerHTML += "</p>"; 
+              
+            }
+            else if (timeSincePost > 3600)
+            {
+                timeSincePost = (timeSincePost / 60) / 60;
+                containerID.innerHTML += "<p>";
+                containerID.innerHTML += "Time since post : " + Math.round(timeSincePost) + "h";
+                containerID.innerHTML += "</p>"; 
+            }
+
+            containerID.innerHTML += '<button onclick = "increment_likey()" type="button" class="btn btn-outline-primary">Me likey :)</button>';
+            containerID.innerHTML += '<button onclick = "increment_notLikey()" type="button" class="btn btn-outline-danger">ME NOT LIEKY!11</button>';
+
+            
+           
+           
+        }
+
+    
+    }
+
+    function increment_likey()
+    {
+        likey++;
+        alert(likey);
+    }
+
+    function increment_notLikey()
+    {
+        notLikey++;
+        alert(notLikey);
+    }
+
+
+</script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.2.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+</body>
+
+</html>

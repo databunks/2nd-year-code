@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=BusEireann
+comment1.params=startingLocation\ destination\ fare\ numberOfPassengers\ dateOfDeparture\ timeOfDeparture\ dateOfArrival\ timeOfArrival
+comment1.target=BusEireann(java.lang.String,\ java.lang.String,\ double,\ int,\ Date,\ Time,\ Date,\ Time)
+comment2.params=
+comment2.target=BusEireann()
+numComments=3

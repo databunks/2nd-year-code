@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=BusVendors
+comment1.params=
+comment1.target=void\ addTrip()
+comment2.params=
+comment2.target=int\ getNumberOfTrips()
+comment3.params=index
+comment3.target=BusVendors\ getCurrentTrip(int)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+comment5.params=
+comment5.target=void\ displayAllTrips()
+numComments=6
